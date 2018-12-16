@@ -38,7 +38,7 @@ class SwiftPTVCached: SwiftPTV {
     private var cachedDirections: [Int: Direction] // Direction objects indexed by their directionID
     private var cachedStopsOnRoute: [Int: StopOnRoute] // StopOnRoute objects (not StopGeosearch or StopDetails) indexed by their StopId
     
-    override init(devid: String, key: String) {
+    override init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
         // initalise cache
         self.cachedRouteTypes = []
         self.cachedRoutes = [:]
@@ -48,7 +48,7 @@ class SwiftPTVCached: SwiftPTV {
         self.cachedDirections = [:]
         self.cachedStopsOnRoute = [:]
         
-        super.init(devid: devid, key: key)
+        super.init(devid: devid, key: key, urlSession: urlSession)
     }
     
     
