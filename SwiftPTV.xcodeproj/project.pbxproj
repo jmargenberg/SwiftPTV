@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AA4AED421C64000009715E7 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4AED121C64000009715E7 /* URLSessionMock.swift */; };
+		1AA4AED521C64000009715E7 /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4AED221C64000009715E7 /* URLSessionDataTaskMock.swift */; };
 		1AE9E6A621AF2AF200548E2E /* SwiftPTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE9E69C21AF2AF200548E2E /* SwiftPTV.framework */; };
 		1AE9E6AB21AF2AF200548E2E /* SwiftPTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6AA21AF2AF200548E2E /* SwiftPTVTests.swift */; };
 		1AE9E6F621AF2B0E00548E2E /* SwiftPTVCached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B621AF2B0E00548E2E /* SwiftPTVCached.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AA4AED121C64000009715E7 /* URLSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		1AA4AED221C64000009715E7 /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		1AE9E69C21AF2AF200548E2E /* SwiftPTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftPTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE9E6A021AF2AF200548E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE9E6A521AF2AF200548E2E /* SwiftPTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AA4AECF21C64000009715E7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1AA4AED121C64000009715E7 /* URLSessionMock.swift */,
+				1AA4AED221C64000009715E7 /* URLSessionDataTaskMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		1AE9E69221AF2AF200548E2E = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		1AE9E6A921AF2AF200548E2E /* SwiftPTVTests */ = {
 			isa = PBXGroup;
 			children = (
+				1AA4AECF21C64000009715E7 /* Mocks */,
 				1AE9E6AA21AF2AF200548E2E /* SwiftPTVTests.swift */,
 				1AE9E6AC21AF2AF200548E2E /* Info.plist */,
 			);
@@ -322,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA4AED421C64000009715E7 /* URLSessionMock.swift in Sources */,
+				1AA4AED521C64000009715E7 /* URLSessionDataTaskMock.swift in Sources */,
 				1AE9E6AB21AF2AF200548E2E /* SwiftPTVTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
