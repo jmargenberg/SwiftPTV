@@ -13,14 +13,19 @@ struct Status: Codable, Equatable {
 
 struct Route: Codable, Equatable {
     let route_id: Int
-    let route_type: Int?
-    let route_name: String?
-    let route_number: String?
+    let route_type: Int
+    let route_name: String
+    let route_number: String
 }
 
 struct RouteResponse: Codable, Equatable {
-    let route: Route?
-    let status: Status?
+    let route: Route
+    let status: Status
+}
+
+struct ErrorResponse: Codable, Equatable {
+    let message: String
+    let status: Status
 }
 
 class SwiftPTVTests: XCTestCase {
@@ -80,6 +85,33 @@ class SwiftPTVTests: XCTestCase {
             completionExecuted.fulfill()
             
             XCTAssertEqual(urlResponse, routeResponse)
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testRequestWithAccessDeniedResponse() {
+        let expectedCallURL =  URL(string: "\(basePathString)/rouets/9?devid=1")!
+        let urlResponse = ErrorResponse(message: "Access denied.", status: Status(version: "3.0", health: 1))
+        
+        urlSessionMock.data = try? JSONEncoder().encode(urlResponse)
+        
+        let decodedData = String(data: urlSessionMock.data!, encoding: .ascii)
+        print(decodedData!)
+        urlSessionMock.urlResponse = HTTPURLResponse(url: expectedCallURL, statusCode: 403, httpVersion: nil, headerFields: nil)
+        urlSessionMock.error = nil
+        
+        let completionIsNotExecuted = self.expectation(description: "Completion handler is not executed")
+        completionIsNotExecuted.isInverted = true
+        let failureExecuted = self.expectation(description: "Failure handler is executed")
+        
+        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self/*Dictionary<String, Any>.self*/, failure: {reason, message  in
+            failureExecuted.fulfill()
+            
+            XCTAssertEqual(reason, .AccessDenied)
+            XCTAssertEqual(message, "Access denied.")
+        }) {(_) in
+            completionIsNotExecuted.fulfill()
         }
         
         waitForExpectations(timeout: 1, handler: nil)
