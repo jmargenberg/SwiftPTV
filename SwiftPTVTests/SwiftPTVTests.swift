@@ -1,13 +1,38 @@
 import XCTest
 @testable import SwiftPTV
 
+struct Status: Codable, Equatable {
+    let version: String
+    let health: Int
+    
+    init(version: String, health: Int) {
+        self.version = version
+        self.health = health
+    }
+}
+
+struct Route: Codable, Equatable {
+    let route_id: Int
+    let route_type: Int?
+    let route_name: String?
+    let route_number: String?
+}
+
+struct RouteResponse: Codable, Equatable {
+    let route: Route?
+    let status: Status?
+}
+
 class SwiftPTVTests: XCTestCase {
     private var urlSessionMock: URLSessionMock!
     private var swiftPTV: SwiftPTV!
     
     private let devid = "1234567"
     private let key = "9c132d31-6a30-4cac-8d8b-8a1970834799" // example API key from PTV documentation
-
+    
+    private let basePathString = "timetableapi.ptv.vic.gov.au"
+    private let apiVersion = "v3"
+    
     override func setUp() {
         super.setUp()
         
@@ -19,5 +44,44 @@ class SwiftPTVTests: XCTestCase {
         urlSessionMock = nil
         
         super.tearDown()
+    }
+    
+    func testRequestWithSuccessfulResponse() {
+        let expectedCallURL =  URL(string: "\(basePathString)/rouets/9?devid=1234567&")!
+        let urlResponse = RouteResponse(route: Route(route_id: 9, route_type: 0, route_name: "Lilydale", route_number: ""), status: Status(version: "3.0", health: 1))
+        
+        urlSessionMock.data = try? JSONEncoder().encode(urlResponse)
+        
+        let decodedData = String(data: urlSessionMock.data!, encoding: .ascii)
+        print(decodedData!)
+        urlSessionMock.urlResponse = HTTPURLResponse(url: expectedCallURL, statusCode: 200, httpVersion: nil, headerFields: nil)
+        urlSessionMock.error = nil
+        
+        urlSessionMock.assertionClosure = {(url) in
+            let urlComponents = URLComponents.init(url: url, resolvingAgainstBaseURL: true)
+            
+            XCTAssertEqual(urlComponents!.path, "/\(self.apiVersion)/routes/9", "Path correctly built from version, api name and search string")
+            
+            XCTAssertEqual(urlComponents!.host, self.basePathString, "Host correct")
+            
+            XCTAssertEqual(urlComponents!.query, "devid=1234567&signature=55bebdc2973825e59557459f0da0e9cd01a2bd54", "Devid included in parameters and siignature correctly calculated")
+            
+            // XCTAssertEqual(url.absoluteString, expectedCallURL.absoluteString, "Called with correct URL")
+            
+        }
+        
+        let completionExecuted = self.expectation(description: "Completion handler is executed")
+        let failureIsNotExecuted = self.expectation(description: "Failure handler is not executed")
+        failureIsNotExecuted.isInverted = true
+        
+        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self/*Dictionary<String, Any>.self*/, failure: { (_, _) in
+            failureIsNotExecuted.fulfill()
+        }) {(routeResponse) in
+            completionExecuted.fulfill()
+            
+            XCTAssertEqual(urlResponse, routeResponse)
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
     }
 }
