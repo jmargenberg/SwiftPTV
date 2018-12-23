@@ -1,6 +1,6 @@
 import Foundation
 
 struct Status: Codable {
-    let version: String?
-    let health: Int?
+    let version: String
+    let health: Int
 }

@@ -36,10 +36,11 @@
 		1AE9E72B21AF2B0E00548E2E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6EE21AF2B0E00548E2E /* Status.swift */; };
 		1AE9E72C21AF2B0E00548E2E /* StopAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6EF21AF2B0E00548E2E /* StopAccessibility.swift */; };
 		1AE9E72D21AF2B0E00548E2E /* RouteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F021AF2B0E00548E2E /* RouteResponse.swift */; };
-		1AE9E72E21AF2B0E00548E2E /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F121AF2B0E00548E2E /* Run.swift */; };
 		1AE9E72F21AF2B0E00548E2E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F221AF2B0E00548E2E /* Route.swift */; };
 		1AE9E73021AF2B0E00548E2E /* StopDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F321AF2B0E00548E2E /* StopDetails.swift */; };
 		1AE9E73221AF2B0E00548E2E /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F521AF2B0E00548E2E /* Direction.swift */; };
+		1AED37D821CF9F9D00757AEC /* SwiftPTVModelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D721CF9F9D00757AEC /* SwiftPTVModelled.swift */; };
+		1AED37DA21CFA66500757AEC /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D921CFA66500757AEC /* Run.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,10 +86,11 @@
 		1AE9E6EE21AF2B0E00548E2E /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		1AE9E6EF21AF2B0E00548E2E /* StopAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopAccessibility.swift; sourceTree = "<group>"; };
 		1AE9E6F021AF2B0E00548E2E /* RouteResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteResponse.swift; sourceTree = "<group>"; };
-		1AE9E6F121AF2B0E00548E2E /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		1AE9E6F221AF2B0E00548E2E /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		1AE9E6F321AF2B0E00548E2E /* StopDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopDetails.swift; sourceTree = "<group>"; };
 		1AE9E6F521AF2B0E00548E2E /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		1AED37D721CF9F9D00757AEC /* SwiftPTVModelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPTVModelled.swift; sourceTree = "<group>"; };
+		1AED37D921CFA66500757AEC /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				1AE9E6B821AF2B0E00548E2E /* SwiftPTV.swift */,
+				1AED37D721CF9F9D00757AEC /* SwiftPTVModelled.swift */,
 				1AE9E6B621AF2B0E00548E2E /* SwiftPTVCached.swift */,
 				1AE9E6DA21AF2B0E00548E2E /* Models */,
 				1AE9E6B721AF2B0E00548E2E /* SwiftPTV-Bridging-Header.h */,
@@ -169,12 +172,12 @@
 				1AE9E6EA21AF2B0E00548E2E /* ErrorResponse.swift */,
 				1AE9E6DF21AF2B0E00548E2E /* GPS.swift */,
 				1AE9E6DB21AF2B0E00548E2E /* Health.swift */,
+				1AED37D921CFA66500757AEC /* Run.swift */,
 				1AE9E6F221AF2B0E00548E2E /* Route.swift */,
 				1AE9E6F021AF2B0E00548E2E /* RouteResponse.swift */,
 				1AE9E6EC21AF2B0E00548E2E /* RoutesResponse.swift */,
 				1AE9E6ED21AF2B0E00548E2E /* RouteType.swift */,
 				1AE9E6E421AF2B0E00548E2E /* RouteTypesResponse.swift */,
-				1AE9E6F121AF2B0E00548E2E /* Run.swift */,
 				1AE9E6EE21AF2B0E00548E2E /* Status.swift */,
 				1AE9E6EF21AF2B0E00548E2E /* StopAccessibility.swift */,
 				1AE9E6E221AF2B0E00548E2E /* StopAccessibilityWheelchair.swift */,
@@ -307,11 +310,12 @@
 				1AE9E71D21AF2B0E00548E2E /* StopLocation.swift in Sources */,
 				1AE9E72021AF2B0E00548E2E /* StopDetailsResponse.swift in Sources */,
 				1AE9E72121AF2B0E00548E2E /* RouteTypesResponse.swift in Sources */,
+				1AED37DA21CFA66500757AEC /* Run.swift in Sources */,
 				1AE9E72221AF2B0E00548E2E /* Disruption.swift in Sources */,
 				1AE9E72F21AF2B0E00548E2E /* Route.swift in Sources */,
 				1AE9E72D21AF2B0E00548E2E /* RouteResponse.swift in Sources */,
+				1AED37D821CF9F9D00757AEC /* SwiftPTVModelled.swift in Sources */,
 				1AE9E72721AF2B0E00548E2E /* ErrorResponse.swift in Sources */,
-				1AE9E72E21AF2B0E00548E2E /* Run.swift in Sources */,
 				1AE9E72821AF2B0E00548E2E /* StoppingPattern.swift in Sources */,
 				1AE9E72B21AF2B0E00548E2E /* Status.swift in Sources */,
 				1AE9E71921AF2B0E00548E2E /* StopAmenityDetails.swift in Sources */,

@@ -11,10 +11,10 @@ import CommonCrypto
  Strictly conforms to spec at https://timetableapi.ptv.vic.gov.au/swagger/ui/index
  */
 class SwiftPTV {
-    private var baseURL: URL = URL(string: "http://timetableapi.ptv.vic.gov.au")! // URL of the PTV API
-    private var version: String = "v3" // version of PTV API
-    private var devid: String
-    private var key: String
+    private static let baseURL: URL = URL(string: "http://timetableapi.ptv.vic.gov.au")! // URL of the PTV API
+    private static let version: String = "v3" // version of PTV API
+    private let devid: String
+    private let key: String
     private let urlSession: URLSession
     
     init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
@@ -36,26 +36,25 @@ class SwiftPTV {
      Calls PTV API at requested api name with provided search string and parameters, calling completion closure on completion with Data object of json response if successful or nil if unsuccessful
      */
     public func call<T: Codable>(apiName: String, searchString: String, params: [String : String]?, decodeTo responseType: T.Type, failure: @escaping FailureHandler, completion: @escaping (_ response: T) -> ()) {
-        // TODO Handle errors by providing alternative closure for error handling
         let url = getCallURL(apiName: apiName, searchString: searchString, params: params)
         
         urlSession.dataTask(with: url) { (data, response, dataTaskError) in
-            if let _dataTaskError = dataTaskError {
-                switch (_dataTaskError as! URLError).code {
+            if let dataTaskError = dataTaskError {
+                switch (dataTaskError as! URLError).code {
                 case URLError.Code.notConnectedToInternet, URLError.Code.networkConnectionLost, URLError.Code.cannotConnectToHost, URLError.cannotLoadFromNetwork:
                     failure(.NoNetworkConnection, "Unable to connect to network.")
                 default:
                     failure(.UnkownError, nil)
                 }
                 
-            } else if let _data = data {
+            } else if let data = data {
                 do {
-                    completion(try JSONDecoder().decode(responseType, from: _data))
+                    completion(try JSONDecoder().decode(responseType, from: data))
                 } catch {
                     let errorResponseMessage: String?
                     
                     do {
-                        errorResponseMessage = (try JSONDecoder().decode(ErrorResponse.self, from: data!)).message
+                        errorResponseMessage = (try JSONDecoder().decode(ErrorResponse.self, from: data)).message
                     } catch {
                         errorResponseMessage = nil
                     }
@@ -85,12 +84,12 @@ class SwiftPTV {
      */
     private func getCallURL(apiName: String, searchString: String, params: [String : String]?) -> URL {
         //build URL with path
-        let requestURLPath = self.baseURL.appendingPathComponent(self.version).appendingPathComponent(apiName).appendingPathComponent(searchString)
+        let requestURLPath = SwiftPTV.baseURL.appendingPathComponent(SwiftPTV.version).appendingPathComponent(apiName).appendingPathComponent(searchString)
         
         var query: [URLQueryItem] = []
         
-        if let unwrappedParams = params {
-            for (paramName, value) in unwrappedParams {
+        if let params = params {
+            for (paramName, value) in params {
                 let param = URLQueryItem(name: paramName, value: value)
                 query.append(param)
             }
@@ -108,12 +107,10 @@ class SwiftPTV {
      Generates HMAC Digests for given PTV API call URL as described in https://static.ptv.vic.gov.au/PTV/PTV%20docs/API/1475462320/PTV-Timetable-API-key-and-signature-document.RTF
      */
     private func signCall(callURL: URL) -> URL {
-        let queryString = String(callURL.absoluteString.dropFirst(baseURL.absoluteString.count)) // remove base URL as it is not part of the signed URL portion
+        let queryString = String(callURL.absoluteString.dropFirst(SwiftPTV.baseURL.absoluteString.count)) // remove base URL as it is not part of the signed URL portion
         
         var signature = ""
         signature = queryString.hmac(key: self.key)
-        
-        
         
         let signatureParam = URLQueryItem(name: "signature", value: signature)
         
