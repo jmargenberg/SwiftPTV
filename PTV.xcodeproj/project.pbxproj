@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		1AA4AED421C64000009715E7 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4AED121C64000009715E7 /* URLSessionMock.swift */; };
 		1AA4AED521C64000009715E7 /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4AED221C64000009715E7 /* URLSessionDataTaskMock.swift */; };
-		1AE9E6A621AF2AF200548E2E /* SwiftPTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE9E69C21AF2AF200548E2E /* SwiftPTV.framework */; };
-		1AE9E6AB21AF2AF200548E2E /* SwiftPTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6AA21AF2AF200548E2E /* SwiftPTVTests.swift */; };
-		1AE9E6F621AF2B0E00548E2E /* SwiftPTVCached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B621AF2B0E00548E2E /* SwiftPTVCached.swift */; };
-		1AE9E6F721AF2B0E00548E2E /* SwiftPTV-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AE9E6B721AF2B0E00548E2E /* SwiftPTV-Bridging-Header.h */; };
-		1AE9E6F821AF2B0E00548E2E /* SwiftPTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B821AF2B0E00548E2E /* SwiftPTV.swift */; };
+		1AE9E6A621AF2AF200548E2E /* PTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE9E69C21AF2AF200548E2E /* PTV.framework */; };
+		1AE9E6AB21AF2AF200548E2E /* PTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6AA21AF2AF200548E2E /* PTVTests.swift */; };
+		1AE9E6F621AF2B0E00548E2E /* PTVCached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B621AF2B0E00548E2E /* PTVCached.swift */; };
+		1AE9E6F821AF2B0E00548E2E /* PTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B821AF2B0E00548E2E /* PTV.swift */; };
 		1AE9E71821AF2B0E00548E2E /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6DB21AF2B0E00548E2E /* Health.swift */; };
 		1AE9E71921AF2B0E00548E2E /* StopAmenityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6DC21AF2B0E00548E2E /* StopAmenityDetails.swift */; };
 		1AE9E71A21AF2B0E00548E2E /* StopsOnRouteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6DD21AF2B0E00548E2E /* StopsOnRouteResponse.swift */; };
@@ -39,8 +38,9 @@
 		1AE9E72F21AF2B0E00548E2E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F221AF2B0E00548E2E /* Route.swift */; };
 		1AE9E73021AF2B0E00548E2E /* StopDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F321AF2B0E00548E2E /* StopDetails.swift */; };
 		1AE9E73221AF2B0E00548E2E /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F521AF2B0E00548E2E /* Direction.swift */; };
-		1AED37D821CF9F9D00757AEC /* SwiftPTVModelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D721CF9F9D00757AEC /* SwiftPTVModelled.swift */; };
+		1AED37D821CF9F9D00757AEC /* PTVModelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D721CF9F9D00757AEC /* PTVModelled.swift */; };
 		1AED37DA21CFA66500757AEC /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D921CFA66500757AEC /* Run.swift */; };
+		1AED37DB21CFB61700757AEC /* PTV-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AE9E6B721AF2B0E00548E2E /* PTV-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,14 +56,14 @@
 /* Begin PBXFileReference section */
 		1AA4AED121C64000009715E7 /* URLSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		1AA4AED221C64000009715E7 /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
-		1AE9E69C21AF2AF200548E2E /* SwiftPTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftPTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE9E69C21AF2AF200548E2E /* PTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE9E6A021AF2AF200548E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AE9E6A521AF2AF200548E2E /* SwiftPTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AE9E6AA21AF2AF200548E2E /* SwiftPTVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPTVTests.swift; sourceTree = "<group>"; };
+		1AE9E6A521AF2AF200548E2E /* PTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE9E6AA21AF2AF200548E2E /* PTVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTVTests.swift; sourceTree = "<group>"; };
 		1AE9E6AC21AF2AF200548E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AE9E6B621AF2B0E00548E2E /* SwiftPTVCached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPTVCached.swift; sourceTree = "<group>"; };
-		1AE9E6B721AF2B0E00548E2E /* SwiftPTV-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftPTV-Bridging-Header.h"; sourceTree = "<group>"; };
-		1AE9E6B821AF2B0E00548E2E /* SwiftPTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPTV.swift; sourceTree = "<group>"; };
+		1AE9E6B621AF2B0E00548E2E /* PTVCached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTVCached.swift; sourceTree = "<group>"; };
+		1AE9E6B721AF2B0E00548E2E /* PTV-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTV-Bridging-Header.h"; sourceTree = "<group>"; };
+		1AE9E6B821AF2B0E00548E2E /* PTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTV.swift; sourceTree = "<group>"; };
 		1AE9E6DB21AF2B0E00548E2E /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
 		1AE9E6DC21AF2B0E00548E2E /* StopAmenityDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopAmenityDetails.swift; sourceTree = "<group>"; };
 		1AE9E6DD21AF2B0E00548E2E /* StopsOnRouteResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsOnRouteResponse.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		1AE9E6F221AF2B0E00548E2E /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		1AE9E6F321AF2B0E00548E2E /* StopDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopDetails.swift; sourceTree = "<group>"; };
 		1AE9E6F521AF2B0E00548E2E /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
-		1AED37D721CF9F9D00757AEC /* SwiftPTVModelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPTVModelled.swift; sourceTree = "<group>"; };
+		1AED37D721CF9F9D00757AEC /* PTVModelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTVModelled.swift; sourceTree = "<group>"; };
 		1AED37D921CFA66500757AEC /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE9E6A621AF2AF200548E2E /* SwiftPTV.framework in Frameworks */,
+				1AE9E6A621AF2AF200548E2E /* PTV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,8 +124,8 @@
 		1AE9E69221AF2AF200548E2E = {
 			isa = PBXGroup;
 			children = (
-				1AE9E69E21AF2AF200548E2E /* SwiftPTV */,
-				1AE9E6A921AF2AF200548E2E /* SwiftPTVTests */,
+				1AE9E69E21AF2AF200548E2E /* PTV */,
+				1AE9E6A921AF2AF200548E2E /* PTVTests */,
 				1AE9E69D21AF2AF200548E2E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,33 +133,33 @@
 		1AE9E69D21AF2AF200548E2E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AE9E69C21AF2AF200548E2E /* SwiftPTV.framework */,
-				1AE9E6A521AF2AF200548E2E /* SwiftPTVTests.xctest */,
+				1AE9E69C21AF2AF200548E2E /* PTV.framework */,
+				1AE9E6A521AF2AF200548E2E /* PTVTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1AE9E69E21AF2AF200548E2E /* SwiftPTV */ = {
+		1AE9E69E21AF2AF200548E2E /* PTV */ = {
 			isa = PBXGroup;
 			children = (
-				1AE9E6B821AF2B0E00548E2E /* SwiftPTV.swift */,
-				1AED37D721CF9F9D00757AEC /* SwiftPTVModelled.swift */,
-				1AE9E6B621AF2B0E00548E2E /* SwiftPTVCached.swift */,
+				1AE9E6B821AF2B0E00548E2E /* PTV.swift */,
+				1AED37D721CF9F9D00757AEC /* PTVModelled.swift */,
+				1AE9E6B621AF2B0E00548E2E /* PTVCached.swift */,
 				1AE9E6DA21AF2B0E00548E2E /* Models */,
-				1AE9E6B721AF2B0E00548E2E /* SwiftPTV-Bridging-Header.h */,
+				1AE9E6B721AF2B0E00548E2E /* PTV-Bridging-Header.h */,
 				1AE9E6A021AF2AF200548E2E /* Info.plist */,
 			);
-			path = SwiftPTV;
+			path = PTV;
 			sourceTree = "<group>";
 		};
-		1AE9E6A921AF2AF200548E2E /* SwiftPTVTests */ = {
+		1AE9E6A921AF2AF200548E2E /* PTVTests */ = {
 			isa = PBXGroup;
 			children = (
 				1AA4AECF21C64000009715E7 /* Mocks */,
-				1AE9E6AA21AF2AF200548E2E /* SwiftPTVTests.swift */,
+				1AE9E6AA21AF2AF200548E2E /* PTVTests.swift */,
 				1AE9E6AC21AF2AF200548E2E /* Info.plist */,
 			);
-			path = SwiftPTVTests;
+			path = PTVTests;
 			sourceTree = "<group>";
 		};
 		1AE9E6DA21AF2B0E00548E2E /* Models */ = {
@@ -202,16 +202,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE9E6F721AF2B0E00548E2E /* SwiftPTV-Bridging-Header.h in Headers */,
+				1AED37DB21CFB61700757AEC /* PTV-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1AE9E69B21AF2AF200548E2E /* SwiftPTV */ = {
+		1AE9E69B21AF2AF200548E2E /* PTV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1AE9E6B021AF2AF200548E2E /* Build configuration list for PBXNativeTarget "SwiftPTV" */;
+			buildConfigurationList = 1AE9E6B021AF2AF200548E2E /* Build configuration list for PBXNativeTarget "PTV" */;
 			buildPhases = (
 				1AE9E69721AF2AF200548E2E /* Headers */,
 				1AE9E69821AF2AF200548E2E /* Sources */,
@@ -222,14 +222,14 @@
 			);
 			dependencies = (
 			);
-			name = SwiftPTV;
+			name = PTV;
 			productName = SwiftPTV;
-			productReference = 1AE9E69C21AF2AF200548E2E /* SwiftPTV.framework */;
+			productReference = 1AE9E69C21AF2AF200548E2E /* PTV.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		1AE9E6A421AF2AF200548E2E /* SwiftPTVTests */ = {
+		1AE9E6A421AF2AF200548E2E /* PTVTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1AE9E6B321AF2AF200548E2E /* Build configuration list for PBXNativeTarget "SwiftPTVTests" */;
+			buildConfigurationList = 1AE9E6B321AF2AF200548E2E /* Build configuration list for PBXNativeTarget "PTVTests" */;
 			buildPhases = (
 				1AE9E6A121AF2AF200548E2E /* Sources */,
 				1AE9E6A221AF2AF200548E2E /* Frameworks */,
@@ -240,9 +240,9 @@
 			dependencies = (
 				1AE9E6A821AF2AF200548E2E /* PBXTargetDependency */,
 			);
-			name = SwiftPTVTests;
+			name = PTVTests;
 			productName = SwiftPTVTests;
-			productReference = 1AE9E6A521AF2AF200548E2E /* SwiftPTVTests.xctest */;
+			productReference = 1AE9E6A521AF2AF200548E2E /* PTVTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +264,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1AE9E69621AF2AF200548E2E /* Build configuration list for PBXProject "SwiftPTV" */;
+			buildConfigurationList = 1AE9E69621AF2AF200548E2E /* Build configuration list for PBXProject "PTV" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -276,8 +276,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1AE9E69B21AF2AF200548E2E /* SwiftPTV */,
-				1AE9E6A421AF2AF200548E2E /* SwiftPTVTests */,
+				1AE9E69B21AF2AF200548E2E /* PTV */,
+				1AE9E6A421AF2AF200548E2E /* PTVTests */,
 			);
 		};
 /* End PBXProject section */
@@ -306,7 +306,7 @@
 			files = (
 				1AE9E71A21AF2B0E00548E2E /* StopsOnRouteResponse.swift in Sources */,
 				1AE9E71E21AF2B0E00548E2E /* DeparturesResponse.swift in Sources */,
-				1AE9E6F821AF2B0E00548E2E /* SwiftPTV.swift in Sources */,
+				1AE9E6F821AF2B0E00548E2E /* PTV.swift in Sources */,
 				1AE9E71D21AF2B0E00548E2E /* StopLocation.swift in Sources */,
 				1AE9E72021AF2B0E00548E2E /* StopDetailsResponse.swift in Sources */,
 				1AE9E72121AF2B0E00548E2E /* RouteTypesResponse.swift in Sources */,
@@ -314,7 +314,7 @@
 				1AE9E72221AF2B0E00548E2E /* Disruption.swift in Sources */,
 				1AE9E72F21AF2B0E00548E2E /* Route.swift in Sources */,
 				1AE9E72D21AF2B0E00548E2E /* RouteResponse.swift in Sources */,
-				1AED37D821CF9F9D00757AEC /* SwiftPTVModelled.swift in Sources */,
+				1AED37D821CF9F9D00757AEC /* PTVModelled.swift in Sources */,
 				1AE9E72721AF2B0E00548E2E /* ErrorResponse.swift in Sources */,
 				1AE9E72821AF2B0E00548E2E /* StoppingPattern.swift in Sources */,
 				1AE9E72B21AF2B0E00548E2E /* Status.swift in Sources */,
@@ -327,7 +327,7 @@
 				1AE9E72421AF2B0E00548E2E /* StopGeosearch.swift in Sources */,
 				1AE9E72C21AF2B0E00548E2E /* StopAccessibility.swift in Sources */,
 				1AE9E71F21AF2B0E00548E2E /* StopAccessibilityWheelchair.swift in Sources */,
-				1AE9E6F621AF2B0E00548E2E /* SwiftPTVCached.swift in Sources */,
+				1AE9E6F621AF2B0E00548E2E /* PTVCached.swift in Sources */,
 				1AE9E71B21AF2B0E00548E2E /* Departure.swift in Sources */,
 				1AE9E72A21AF2B0E00548E2E /* RouteType.swift in Sources */,
 				1AE9E71C21AF2B0E00548E2E /* GPS.swift in Sources */,
@@ -342,7 +342,7 @@
 			files = (
 				1AA4AED421C64000009715E7 /* URLSessionMock.swift in Sources */,
 				1AA4AED521C64000009715E7 /* URLSessionDataTaskMock.swift in Sources */,
-				1AE9E6AB21AF2AF200548E2E /* SwiftPTVTests.swift in Sources */,
+				1AE9E6AB21AF2AF200548E2E /* PTVTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +351,7 @@
 /* Begin PBXTargetDependency section */
 		1AE9E6A821AF2AF200548E2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1AE9E69B21AF2AF200548E2E /* SwiftPTV */;
+			target = 1AE9E69B21AF2AF200548E2E /* PTV */;
 			targetProxy = 1AE9E6A721AF2AF200548E2E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -490,7 +490,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftPTV/Info.plist;
+				INFOPLIST_FILE = PTV/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -517,7 +517,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftPTV/Info.plist;
+				INFOPLIST_FILE = PTV/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,7 +538,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96787978FJ;
-				INFOPLIST_FILE = SwiftPTVTests/Info.plist;
+				INFOPLIST_FILE = PTVTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +557,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96787978FJ;
-				INFOPLIST_FILE = SwiftPTVTests/Info.plist;
+				INFOPLIST_FILE = PTVTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -573,7 +573,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1AE9E69621AF2AF200548E2E /* Build configuration list for PBXProject "SwiftPTV" */ = {
+		1AE9E69621AF2AF200548E2E /* Build configuration list for PBXProject "PTV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1AE9E6AE21AF2AF200548E2E /* Debug */,
@@ -582,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1AE9E6B021AF2AF200548E2E /* Build configuration list for PBXNativeTarget "SwiftPTV" */ = {
+		1AE9E6B021AF2AF200548E2E /* Build configuration list for PBXNativeTarget "PTV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1AE9E6B121AF2AF200548E2E /* Debug */,
@@ -591,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1AE9E6B321AF2AF200548E2E /* Build configuration list for PBXNativeTarget "SwiftPTVTests" */ = {
+		1AE9E6B321AF2AF200548E2E /* Build configuration list for PBXNativeTarget "PTVTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1AE9E6B421AF2AF200548E2E /* Debug */,

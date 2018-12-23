@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SwiftPTV.xcodeproj">
+      location = "self:/Users/james/Documents/swift/SwiftPTVReal/PTV.xcodeproj">
    </FileRef>
 </Workspace>

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1AE9E6A421AF2AF200548E2E"
-               BuildableName = "SwiftPTVTests.xctest"
-               BlueprintName = "SwiftPTVTests"
-               ReferencedContainer = "container:SwiftPTV.xcodeproj">
+               BuildableName = "PTVTests.xctest"
+               BlueprintName = "PTVTests"
+               ReferencedContainer = "container:PTV.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1AE9E6A421AF2AF200548E2E"
-               BuildableName = "SwiftPTVTests.xctest"
-               BlueprintName = "SwiftPTVTests"
-               ReferencedContainer = "container:SwiftPTV.xcodeproj">
+               BuildableName = "PTVTests.xctest"
+               BlueprintName = "PTVTests"
+               ReferencedContainer = "container:PTV.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1AE9E6A421AF2AF200548E2E"
-            BuildableName = "SwiftPTVTests.xctest"
-            BlueprintName = "SwiftPTVTests"
-            ReferencedContainer = "container:SwiftPTV.xcodeproj">
+            BuildableName = "PTVTests.xctest"
+            BlueprintName = "PTVTests"
+            ReferencedContainer = "container:PTV.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -74,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1AE9E6A421AF2AF200548E2E"
-            BuildableName = "SwiftPTVTests.xctest"
-            BlueprintName = "SwiftPTVTests"
-            ReferencedContainer = "container:SwiftPTV.xcodeproj">
+            BuildableName = "PTVTests.xctest"
+            BlueprintName = "PTVTests"
+            ReferencedContainer = "container:PTV.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

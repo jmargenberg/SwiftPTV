@@ -10,7 +10,7 @@ import CommonCrypto
  
  Strictly conforms to spec at https://timetableapi.ptv.vic.gov.au/swagger/ui/index
  */
-class SwiftPTV {
+class PTV {
     private static let baseURL: URL = URL(string: "http://timetableapi.ptv.vic.gov.au")! // URL of the PTV API
     private static let version: String = "v3" // version of PTV API
     private let devid: String
@@ -84,7 +84,7 @@ class SwiftPTV {
      */
     private func getCallURL(apiName: String, searchString: String, params: [String : String]?) -> URL {
         //build URL with path
-        let requestURLPath = SwiftPTV.baseURL.appendingPathComponent(SwiftPTV.version).appendingPathComponent(apiName).appendingPathComponent(searchString)
+        let requestURLPath = PTV.baseURL.appendingPathComponent(PTV.version).appendingPathComponent(apiName).appendingPathComponent(searchString)
         
         var query: [URLQueryItem] = []
         
@@ -107,7 +107,7 @@ class SwiftPTV {
      Generates HMAC Digests for given PTV API call URL as described in https://static.ptv.vic.gov.au/PTV/PTV%20docs/API/1475462320/PTV-Timetable-API-key-and-signature-document.RTF
      */
     private func signCall(callURL: URL) -> URL {
-        let queryString = String(callURL.absoluteString.dropFirst(SwiftPTV.baseURL.absoluteString.count)) // remove base URL as it is not part of the signed URL portion
+        let queryString = String(callURL.absoluteString.dropFirst(PTV.baseURL.absoluteString.count)) // remove base URL as it is not part of the signed URL portion
         
         var signature = ""
         signature = queryString.hmac(key: self.key)
