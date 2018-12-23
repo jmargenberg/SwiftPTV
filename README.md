@@ -1,6 +1,6 @@
 # SwiftPTV
 
-[![Build Status](https://travis-ci.org/jmargenberg/SwiftPTV.svg?branch=master)](https://travis-ci.org/jmargenberg/SwiftPTV)[![](https://img.shields.io/cocoapods/v/PTV.svg)](https://cocoapods.org/pods/PTV)
+[![Build Status](https://travis-ci.org/jmargenberg/SwiftPTV.svg?branch=master)](https://travis-ci.org/jmargenberg/SwiftPTV) [![](https://img.shields.io/cocoapods/v/PTV.svg)](https://cocoapods.org/pods/PTV)
 
 API adaptor for the [PTV Timetable API v3](https://timetableapi.ptv.vic.gov.au/swagger/ui/index) written in Swift for iOS
 
