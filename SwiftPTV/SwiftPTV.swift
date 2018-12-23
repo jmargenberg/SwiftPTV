@@ -15,10 +15,12 @@ class SwiftPTV {
     private var version: String = "v3" // version of PTV API
     private var devid: String
     private var key: String
+    private let urlSession: URLSession
     
-    init(devid: String, key: String) {
+    init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
         self.devid = devid
         self.key = key
+        self.urlSession = urlSession
     }
     
     enum CallFailReason {
@@ -37,7 +39,7 @@ class SwiftPTV {
         // TODO Handle errors by providing alternative closure for error handling
         let url = getCallURL(apiName: apiName, searchString: searchString, params: params)
         
-        URLSession.shared.dataTask(with: url) { (data, response, dataTaskError) in
+        urlSession.dataTask(with: url) { (data, response, dataTaskError) in
             if let _dataTaskError = dataTaskError {
                 switch (_dataTaskError as! URLError).code {
                 case URLError.Code.notConnectedToInternet, URLError.Code.networkConnectionLost, URLError.Code.cannotConnectToHost, URLError.cannotLoadFromNetwork:
