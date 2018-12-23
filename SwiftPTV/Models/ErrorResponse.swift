@@ -1,6 +1,6 @@
 import Foundation
 
 struct ErrorResponse: Codable {
-    let message: String?
-    let status: Status?
+    let message: String
+    let status: Status
 }

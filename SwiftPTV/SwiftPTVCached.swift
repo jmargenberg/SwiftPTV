@@ -2,15 +2,13 @@ import UIKit
 import CoreLocation
 
 /**
- Adapts most methods of the PTV RESTful API, decoding all json responses and returning structs, whilst caching (most) encountered objects for cheap retrieval at a later time.
- 
- Most of the responses are encoded into simple Codable Structs described in the 'Models' group but some such as Departure and StoppingPattern also include useful functions.
+ Adapts most methods of the PTV RESTful API, decoding all json responses and returning codable structs, whilst caching (most) encountered objects for cheap retrieval at a later time.
  
  Essentially all objects returned that are likely to be 'static' (not change between calls) are stored in a cache accessed by a method get[ObjectName]FromCache(where[ObjectName]Id[id])
+
  Cached Objects:
  - RouteType
  - StopGeosearch (although .distance should be ignore if retrieved from cache)
- - Route
  - Run
  - Direction
  - StopsOnRoute
@@ -19,19 +17,15 @@ import CoreLocation
  
  Non-cached requests pass results to completion closures, Cached requests use standard return types.
  
- All non-cached request arguments conform closely to the associated parameter list at https://timetableapi.ptv.vic.gov.au/swagger/ui/index
- 
+  ## PTV Stops
  The PTV API provides 3 different types of Stops, each holding slightly different information:
  - StopGeosearch - getStops(nearLocation:  forRouteTypes: maxResults: maxDistance: completion: ) - all stops near a given location
  - StopOnRoute - getStops(onRoute: forRouteType: completion: ) - all the stops for a given route
  - StopDetails - getStopDetails(forStop: forRouteType: completion: ) - detailed description of stop including amenities
  */
-class SwiftPTVCached: SwiftPTV {
-    
-    public static let TRAIN_ROUTE_TYPE = 0 // RouteTypeId for Train Service
+class SwiftPTVCached: SwiftPTVModelled {
     
     private var cachedRouteTypes: [RouteType]
-    // private var routesCache: [Route] // route_type
     private var cachedStopsGeosearch: [Int: StopGeosearch] // StopGeosearch objects (not StopDetails, or StopOnRoute) indexed by their StopID
     private var cachedRoutes: [Int: Route] // Route objects indexed by their routeID
     private var cachedRuns: [Int: Run] // Run objects indexed by their runID
@@ -54,92 +48,47 @@ class SwiftPTVCached: SwiftPTV {
     
     // MARK: - Standard API request functions
     
-    public func getRouteTypes(failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routeTypes: [RouteType]) -> ()) {
-        self.call(apiName: "route_types", searchString: "", params: nil, decodeTo: RouteTypesResponse.self, failure: failure) { (routeTypesResponse) in
-            self.cache(routeTypes: routeTypesResponse.route_types)
-            
-            completion(routeTypesResponse.route_types)
+    public override func getRouteTypes(failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routeTypes: [RouteType]) -> ()) {
+        super.getRouteTypes(failure: failure) { (routeTypes) in
+            self.cache(routeTypes: routeTypes)
+            completion(routeTypes)
         }
     }
     
-    private func getRoutes(params: [String: String], failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
-        self.call(apiName: "routes", searchString: "", params: params, decodeTo: RoutesResponse.self, failure: failure) { (routesResponse) in
-            completion(routesResponse.routes)
+    public override func getRoutes(failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
+        super.getRoutes(failure: failure) { (routes) in
+            self.cache(routes: routes)
+            completion(routes)
         }
     }
     
-    public func getRoutes(failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
-        self.call(apiName: "routes", searchString: "", params: nil, decodeTo: RoutesResponse.self, failure: failure) { (routesResponse) in
-            self.cache(routes: routesResponse.routes)
-            completion(routesResponse.routes)
+    public override func getRoutes(forRouteTypeID routeTypeID: Int, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
+        super.getRoutes(forRouteTypeID: routeTypeID, failure: failure) { (routes) in
+            self.cache(routes: routes)
+            completion(routes)
         }
     }
     
-    public func getRoutes(forRouteTypeID routeTypeID: Int, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
-        self.getRoutes(failure: failure) { (routes) in
-            completion(routes.filter({ $0.route_type == routeTypeID }))
+    public override func getRoutes(forRouteTypeIDs routeTypeIDs: [Int], failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
+        super.getRoutes(forRouteTypeIDs: routeTypeIDs, failure: failure) { (routes) in
+            self.cache(routes: routes)
+            completion(routes)
         }
     }
     
-    public func getRoutes(routeTypeIDs: [Int], failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
-        let routeTypesStrings = routeTypeIDs.map { (id) -> String in String(id)}
-        let routeTypesEncoded = routeTypesStrings.joined(separator: ",")
-        
-        self.getRoutes(params: ["route_types": routeTypesEncoded], failure: failure, completion: completion)
-    }
-    
-    public func getStops(nearLocation location: CLLocationCoordinate2D, forRouteTypes routeTypes: [Int] = [SwiftPTVCached.TRAIN_ROUTE_TYPE], maxResults: Int = 1000, maxDistance: Int = 5000, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (([StopGeosearch]) -> ())) {
-        let searchString = "\(String(location.latitude)),\(String(location.longitude))"
-        let params = [
-            "route_types": (routeTypes.map {(type) -> String in String(type)}).joined(separator: ","),
-            "max_results": String(maxResults),
-            "max_distance": String(maxDistance)
-        ]
-        
-        self.call(apiName: "stops/location", searchString: searchString, params: params, decodeTo: StopsByDistanceResponse.self, failure: failure) { (stopsGeosearchResponse) in
-            let stopGeaosearches = stopsGeosearchResponse.stops
-            
+    public override func getStops(nearLocation location: CLLocationCoordinate2D, forRouteTypes routeTypes: [Int] = [SwiftPTVCached.TRAIN_ROUTE_TYPE], maxResults: Int = 1000, maxDistance: Int = 5000, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (([StopGeosearch]) -> ())) {
+        super.getStops(nearLocation: location, forRouteTypes: routeTypes, failure: failure) { (stopGeaosearches) in
             self.cache(stopGeosearches: stopGeaosearches)
             completion(stopGeaosearches)
         }
     }
     
-    public func getStops(onRoute routeId: Int, forRouteType routeTypeId: Int = SwiftPTVCached.TRAIN_ROUTE_TYPE, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (([StopOnRoute]) -> ())) {
-        let searchString = "route/\(routeId)/route_type/\(routeTypeId)"
-        
-        self.call(apiName: "stops", searchString: searchString, params: nil, decodeTo: StopsOnRouteResponse.self, failure: failure) { (stopsOnRouteResponse) in
-            self.cache(stopsOnRoute: stopsOnRouteResponse.stops)
+    public override func getStops(onRoute routeId: Int, forRouteType routeTypeId: Int = SwiftPTVCached.TRAIN_ROUTE_TYPE, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (([StopOnRoute]) -> ())) {
+        super.getStops(onRoute: routeId, forRouteType: routeTypeId, failure: failure) { (stopsOnRoute) in
+            self.cache(stopsOnRoute: stopsOnRoute)
             
-            completion(stopsOnRouteResponse.stops)
+            completion(stopsOnRoute)
         }
-    }
-    
-    public func getStopDetails(forStop stopId: Int, forRouteType routeTypeId: Int = SwiftPTVCached.TRAIN_ROUTE_TYPE, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping ((StopDetails) -> ())) {
-        let searchString = "\(String(stopId))/route_type/\(String(routeTypeId))"
-        let params = [
-            "stop_amenities": "true",
-            "stop_accessibility": "true"
-        ]
-        
-        self.call(apiName: "stops", searchString: searchString, params: params, decodeTo: StopDetailsResponse.self, failure: failure) { (StopDetailsResponse) in
-            completion(StopDetailsResponse.stop)
-        }
-    }
-    
-    public func getDeparture(forStop stopId: Int, withRouteType routeTypeId: Int, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (([Departure]) -> ())) {
-        let searchString = "route_type/\(String(routeTypeId))/stop/\(String(stopId))"
-        let params = ["expand": "all"]
-        
-        self.call(apiName: "departures", searchString: searchString, params: params, decodeTo: DeparturesResponse.self, failure: failure) { (departuresResponse) in
-            self.cache(departuresResponse: departuresResponse)
-            completion(departuresResponse.departures)
-        }
-    }
-    
-    public func getStoppingPattern(forRun runId: Int, withRouteType routeTypeId: Int, failure: @escaping SwiftPTV.FailureHandler, completion: @escaping (StoppingPattern) -> ()) {
-        let searchString = "run/\(String(runId))/route_type/\(routeTypeId)"
-        
-        self.call(apiName: "pattern", searchString: searchString, params: nil, decodeTo: StoppingPattern.self, failure: failure, completion: completion)
     }
     
     // MARK: - Populate Cache
