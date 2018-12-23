@@ -22,7 +22,7 @@ I've only implemented the subset of the PTV API calls that I needed to complete 
 
 ## PTV Cached
 
-Similar to `SwiftPTVModelled` but any 'static' data that is returned is cached for easy retrieval later.
+Similar to `PTVModelled` but any 'static' data that is returned is cached for easy retrieval later.
 
 For example an already encountered route can be retrieved without calling the actual PTV API with `getRouteFromCache(forRouteId: 9);`.
 
