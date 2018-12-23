@@ -56,9 +56,6 @@ class SwiftPTVTests: XCTestCase {
         let urlResponse = RouteResponse(route: Route(route_id: 9, route_type: 0, route_name: "Lilydale", route_number: ""), status: Status(version: "3.0", health: 1))
         
         urlSessionMock.data = try? JSONEncoder().encode(urlResponse)
-        
-        let decodedData = String(data: urlSessionMock.data!, encoding: .ascii)
-        print(decodedData!)
         urlSessionMock.urlResponse = HTTPURLResponse(url: expectedCallURL, statusCode: 200, httpVersion: nil, headerFields: nil)
         urlSessionMock.error = nil
         
@@ -71,15 +68,13 @@ class SwiftPTVTests: XCTestCase {
             
             XCTAssertEqual(urlComponents!.query, "devid=1234567&signature=55bebdc2973825e59557459f0da0e9cd01a2bd54", "Devid included in parameters and siignature correctly calculated")
             
-            // XCTAssertEqual(url.absoluteString, expectedCallURL.absoluteString, "Called with correct URL")
-            
         }
         
         let completionExecuted = self.expectation(description: "Completion handler is executed")
         let failureIsNotExecuted = self.expectation(description: "Failure handler is not executed")
         failureIsNotExecuted.isInverted = true
         
-        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self/*Dictionary<String, Any>.self*/, failure: { (_, _) in
+        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self, failure: { (_, _) in
             failureIsNotExecuted.fulfill()
         }) {(routeResponse) in
             completionExecuted.fulfill()
@@ -95,9 +90,6 @@ class SwiftPTVTests: XCTestCase {
         let urlResponse = ErrorResponse(message: "Access denied.", status: Status(version: "3.0", health: 1))
         
         urlSessionMock.data = try? JSONEncoder().encode(urlResponse)
-        
-        let decodedData = String(data: urlSessionMock.data!, encoding: .ascii)
-        print(decodedData!)
         urlSessionMock.urlResponse = HTTPURLResponse(url: expectedCallURL, statusCode: 403, httpVersion: nil, headerFields: nil)
         urlSessionMock.error = nil
         
@@ -105,11 +97,54 @@ class SwiftPTVTests: XCTestCase {
         completionIsNotExecuted.isInverted = true
         let failureExecuted = self.expectation(description: "Failure handler is executed")
         
-        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self/*Dictionary<String, Any>.self*/, failure: {reason, message  in
+        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self, failure: {reason, message  in
             failureExecuted.fulfill()
             
             XCTAssertEqual(reason, .AccessDenied)
             XCTAssertEqual(message, "Access denied.")
+        }) {(_) in
+            completionIsNotExecuted.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testRequestWithInvaldRequestResponse() {
+        let expectedCallURL =  URL(string: "\(basePathString)/rouets/nine?devid=1")!
+        let urlResponse = ErrorResponse(message: "Route not found", status: Status(version: "3.0", health: 1))
+        
+        urlSessionMock.data = try? JSONEncoder().encode(urlResponse)
+        urlSessionMock.urlResponse = HTTPURLResponse(url: expectedCallURL, statusCode: 400, httpVersion: nil, headerFields: nil)
+        urlSessionMock.error = nil
+        
+        let completionIsNotExecuted = self.expectation(description: "Completion handler is not executed")
+        completionIsNotExecuted.isInverted = true
+        let failureExecuted = self.expectation(description: "Failure handler is executed")
+        
+        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self, failure: {reason, message  in
+            failureExecuted.fulfill()
+            
+            XCTAssertEqual(reason, .InvalidRequest)
+            XCTAssertEqual(message, "Route not found")
+        }) {(_) in
+            completionIsNotExecuted.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testReuestWithDataTaskError() {
+        urlSessionMock.error = URLError(.notConnectedToInternet)
+        
+        let completionIsNotExecuted = self.expectation(description: "Completion handler is not executed")
+        completionIsNotExecuted.isInverted = true
+        let failureExecuted = self.expectation(description: "Failure handler is executed")
+        
+        swiftPTV.call(apiName: "routes", searchString: "9", params: nil, decodeTo: RouteResponse.self, failure: {reason, message  in
+            failureExecuted.fulfill()
+            
+            XCTAssertEqual(reason, .NoNetworkConnection)
+            XCTAssertEqual(message, "Unable to connect to network.")
         }) {(_) in
             completionIsNotExecuted.fulfill()
         }
