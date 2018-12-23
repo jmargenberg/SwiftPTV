@@ -26,4 +26,4 @@ Similar to `PTVModelled` but any 'static' data that is returned is cached for ea
 
 For example an already encountered route can be retrieved without calling the actual PTV API with `getRouteFromCache(forRouteId: 9);`.
 
-This is especially useful when using `getDeparture(forStop, withRouteType, failure, completion)` as any directions, runs, routes and stopeed referenced in the departures are also returned and cached
+This is especially useful when using `getDeparture(forStop, withRouteType, failure, completion)` as any directions, runs, routes or stops referenced in the departures are also returned and cached
