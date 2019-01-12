@@ -10,7 +10,7 @@ import CommonCrypto
  
  Strictly conforms to spec at https://timetableapi.ptv.vic.gov.au/swagger/ui/index
  */
-class PTV {
+public class Adapter {
     private static let baseURL: URL = URL(string: "http://timetableapi.ptv.vic.gov.au")! // URL of the PTV API
     private static let version: String = "v3" // version of PTV API
     private let devid: String
@@ -23,14 +23,14 @@ class PTV {
         self.urlSession = urlSession
     }
     
-    enum CallFailReason {
+    public enum CallFailReason {
         case InvalidRequest
         case AccessDenied
         case NoNetworkConnection
         case UnkownError
     }
     
-    typealias FailureHandler = (_ callFailReason: CallFailReason, _ message: String?) -> ()
+    public typealias FailureHandler = (_ callFailReason: CallFailReason, _ message: String?) -> ()
     
     /**
      Calls PTV API at requested api name with provided search string and parameters, calling completion closure on completion with Data object of json response if successful or nil if unsuccessful
@@ -84,7 +84,7 @@ class PTV {
      */
     private func getCallURL(apiName: String, searchString: String, params: [String : String]?) -> URL {
         //build URL with path
-        let requestURLPath = PTV.baseURL.appendingPathComponent(PTV.version).appendingPathComponent(apiName).appendingPathComponent(searchString)
+        let requestURLPath = Adapter.baseURL.appendingPathComponent(Adapter.version).appendingPathComponent(apiName).appendingPathComponent(searchString)
         
         var query: [URLQueryItem] = []
         
@@ -107,7 +107,7 @@ class PTV {
      Generates HMAC Digests for given PTV API call URL as described in https://static.ptv.vic.gov.au/PTV/PTV%20docs/API/1475462320/PTV-Timetable-API-key-and-signature-document.RTF
      */
     private func signCall(callURL: URL) -> URL {
-        let queryString = String(callURL.absoluteString.dropFirst(PTV.baseURL.absoluteString.count)) // remove base URL as it is not part of the signed URL portion
+        let queryString = String(callURL.absoluteString.dropFirst(Adapter.baseURL.absoluteString.count)) // remove base URL as it is not part of the signed URL portion
         
         var signature = ""
         signature = queryString.hmac(key: self.key)

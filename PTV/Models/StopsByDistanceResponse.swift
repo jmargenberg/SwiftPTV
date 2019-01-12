@@ -1,6 +1,6 @@
 import Foundation
 
-struct StopsByDistanceResponse: Codable {
+public struct StopsByDistanceResponse: Codable {
     let stops: [StopGeosearch]
     let status: Status
 }

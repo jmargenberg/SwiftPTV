@@ -11,8 +11,8 @@
 		1AA4AED521C64000009715E7 /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4AED221C64000009715E7 /* URLSessionDataTaskMock.swift */; };
 		1AE9E6A621AF2AF200548E2E /* PTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE9E69C21AF2AF200548E2E /* PTV.framework */; };
 		1AE9E6AB21AF2AF200548E2E /* PTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6AA21AF2AF200548E2E /* PTVTests.swift */; };
-		1AE9E6F621AF2B0E00548E2E /* PTVCached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B621AF2B0E00548E2E /* PTVCached.swift */; };
-		1AE9E6F821AF2B0E00548E2E /* PTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B821AF2B0E00548E2E /* PTV.swift */; };
+		1AE9E6F621AF2B0E00548E2E /* CachingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B621AF2B0E00548E2E /* CachingAdapter.swift */; };
+		1AE9E6F821AF2B0E00548E2E /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6B821AF2B0E00548E2E /* Adapter.swift */; };
 		1AE9E71821AF2B0E00548E2E /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6DB21AF2B0E00548E2E /* Health.swift */; };
 		1AE9E71921AF2B0E00548E2E /* StopAmenityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6DC21AF2B0E00548E2E /* StopAmenityDetails.swift */; };
 		1AE9E71A21AF2B0E00548E2E /* StopsOnRouteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6DD21AF2B0E00548E2E /* StopsOnRouteResponse.swift */; };
@@ -38,7 +38,7 @@
 		1AE9E72F21AF2B0E00548E2E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F221AF2B0E00548E2E /* Route.swift */; };
 		1AE9E73021AF2B0E00548E2E /* StopDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F321AF2B0E00548E2E /* StopDetails.swift */; };
 		1AE9E73221AF2B0E00548E2E /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6F521AF2B0E00548E2E /* Direction.swift */; };
-		1AED37D821CF9F9D00757AEC /* PTVModelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D721CF9F9D00757AEC /* PTVModelled.swift */; };
+		1AED37D821CF9F9D00757AEC /* ModelledAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D721CF9F9D00757AEC /* ModelledAdapter.swift */; };
 		1AED37DA21CFA66500757AEC /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AED37D921CFA66500757AEC /* Run.swift */; };
 		1AED37DB21CFB61700757AEC /* PTV-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AE9E6B721AF2B0E00548E2E /* PTV-Bridging-Header.h */; };
 /* End PBXBuildFile section */
@@ -61,9 +61,9 @@
 		1AE9E6A521AF2AF200548E2E /* PTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE9E6AA21AF2AF200548E2E /* PTVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTVTests.swift; sourceTree = "<group>"; };
 		1AE9E6AC21AF2AF200548E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AE9E6B621AF2B0E00548E2E /* PTVCached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTVCached.swift; sourceTree = "<group>"; };
+		1AE9E6B621AF2B0E00548E2E /* CachingAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachingAdapter.swift; sourceTree = "<group>"; };
 		1AE9E6B721AF2B0E00548E2E /* PTV-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTV-Bridging-Header.h"; sourceTree = "<group>"; };
-		1AE9E6B821AF2B0E00548E2E /* PTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTV.swift; sourceTree = "<group>"; };
+		1AE9E6B821AF2B0E00548E2E /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		1AE9E6DB21AF2B0E00548E2E /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
 		1AE9E6DC21AF2B0E00548E2E /* StopAmenityDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopAmenityDetails.swift; sourceTree = "<group>"; };
 		1AE9E6DD21AF2B0E00548E2E /* StopsOnRouteResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsOnRouteResponse.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		1AE9E6F221AF2B0E00548E2E /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		1AE9E6F321AF2B0E00548E2E /* StopDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopDetails.swift; sourceTree = "<group>"; };
 		1AE9E6F521AF2B0E00548E2E /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
-		1AED37D721CF9F9D00757AEC /* PTVModelled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTVModelled.swift; sourceTree = "<group>"; };
+		1AED37D721CF9F9D00757AEC /* ModelledAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelledAdapter.swift; sourceTree = "<group>"; };
 		1AED37D921CFA66500757AEC /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,9 +142,9 @@
 		1AE9E69E21AF2AF200548E2E /* PTV */ = {
 			isa = PBXGroup;
 			children = (
-				1AE9E6B821AF2B0E00548E2E /* PTV.swift */,
-				1AED37D721CF9F9D00757AEC /* PTVModelled.swift */,
-				1AE9E6B621AF2B0E00548E2E /* PTVCached.swift */,
+				1AE9E6B821AF2B0E00548E2E /* Adapter.swift */,
+				1AED37D721CF9F9D00757AEC /* ModelledAdapter.swift */,
+				1AE9E6B621AF2B0E00548E2E /* CachingAdapter.swift */,
 				1AE9E6DA21AF2B0E00548E2E /* Models */,
 				1AE9E6B721AF2B0E00548E2E /* PTV-Bridging-Header.h */,
 				1AE9E6A021AF2AF200548E2E /* Info.plist */,
@@ -306,7 +306,7 @@
 			files = (
 				1AE9E71A21AF2B0E00548E2E /* StopsOnRouteResponse.swift in Sources */,
 				1AE9E71E21AF2B0E00548E2E /* DeparturesResponse.swift in Sources */,
-				1AE9E6F821AF2B0E00548E2E /* PTV.swift in Sources */,
+				1AE9E6F821AF2B0E00548E2E /* Adapter.swift in Sources */,
 				1AE9E71D21AF2B0E00548E2E /* StopLocation.swift in Sources */,
 				1AE9E72021AF2B0E00548E2E /* StopDetailsResponse.swift in Sources */,
 				1AE9E72121AF2B0E00548E2E /* RouteTypesResponse.swift in Sources */,
@@ -314,7 +314,7 @@
 				1AE9E72221AF2B0E00548E2E /* Disruption.swift in Sources */,
 				1AE9E72F21AF2B0E00548E2E /* Route.swift in Sources */,
 				1AE9E72D21AF2B0E00548E2E /* RouteResponse.swift in Sources */,
-				1AED37D821CF9F9D00757AEC /* PTVModelled.swift in Sources */,
+				1AED37D821CF9F9D00757AEC /* ModelledAdapter.swift in Sources */,
 				1AE9E72721AF2B0E00548E2E /* ErrorResponse.swift in Sources */,
 				1AE9E72821AF2B0E00548E2E /* StoppingPattern.swift in Sources */,
 				1AE9E72B21AF2B0E00548E2E /* Status.swift in Sources */,
@@ -327,7 +327,7 @@
 				1AE9E72421AF2B0E00548E2E /* StopGeosearch.swift in Sources */,
 				1AE9E72C21AF2B0E00548E2E /* StopAccessibility.swift in Sources */,
 				1AE9E71F21AF2B0E00548E2E /* StopAccessibilityWheelchair.swift in Sources */,
-				1AE9E6F621AF2B0E00548E2E /* PTVCached.swift in Sources */,
+				1AE9E6F621AF2B0E00548E2E /* CachingAdapter.swift in Sources */,
 				1AE9E71B21AF2B0E00548E2E /* Departure.swift in Sources */,
 				1AE9E72A21AF2B0E00548E2E /* RouteType.swift in Sources */,
 				1AE9E71C21AF2B0E00548E2E /* GPS.swift in Sources */,

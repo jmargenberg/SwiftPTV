@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-struct StopGeosearch: Codable {
+public struct StopGeosearch: Codable {
     let stop_id: Int
     let stop_distance: Float? // distance from searched location
     let stop_name: String

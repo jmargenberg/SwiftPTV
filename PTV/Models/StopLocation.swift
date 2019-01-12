@@ -1,5 +1,5 @@
 import Foundation
 
-struct StopLocation: Codable {
+public struct StopLocation: Codable {
     let gps: GPS
 }

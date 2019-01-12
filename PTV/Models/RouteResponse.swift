@@ -1,6 +1,6 @@
 import Foundation
 
-struct RouteResponse: Codable {
+public struct RouteResponse: Codable {
     let routes: Route
     let status: Status
 }

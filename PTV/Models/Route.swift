@@ -1,6 +1,6 @@
 import Foundation
 
-struct Route: Codable {
+public struct Route: Codable {
     let route_id: Int
     let route_type: Int
     let route_name: String

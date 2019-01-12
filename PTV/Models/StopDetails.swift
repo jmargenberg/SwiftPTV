@@ -1,6 +1,6 @@
 import Foundation
 
-struct StopDetails: Codable {
+public struct StopDetails: Codable {
     let station_description: String
     let stop_amenities: StopAmenityDetails
     let stop_accessibility: StopAccessibility

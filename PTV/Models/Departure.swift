@@ -1,6 +1,6 @@
 import Foundation
 
-struct Departure: Codable {
+public struct Departure: Codable {
     let stop_id: Int
     let route_id: Int
     let run_id: Int

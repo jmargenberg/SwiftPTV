@@ -30,7 +30,7 @@ struct ErrorResponse: Codable, Equatable {
 
 class PTVTests: XCTestCase {
     private var urlSessionMock: URLSessionMock!
-    private var swiftPTV: PTV!
+    private var swiftPTV: Adapter!
     
     private let devid = "1234567"
     private let key = "9c132d31-6a30-4cac-8d8b-8a1970834799" // example API key from PTV documentation
@@ -42,7 +42,7 @@ class PTVTests: XCTestCase {
         super.setUp()
         
         urlSessionMock = URLSessionMock()
-        swiftPTV = PTV(devid: devid, key: key, urlSession: urlSessionMock)
+        swiftPTV = Adapter(devid: devid, key: key, urlSession: urlSessionMock)
     }
 
     override func tearDown() {

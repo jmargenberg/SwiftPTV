@@ -1,6 +1,6 @@
 import Foundation
 
-struct StopsOnRouteResponse: Codable {
+public struct StopsOnRouteResponse: Codable {
     let stops: [StopOnRoute]
     let status: Status
 }
