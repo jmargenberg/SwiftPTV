@@ -1,6 +1,6 @@
 import Foundation
 
 public struct StopDetailsResponse: Codable {
-    let stop: StopDetails
-    let status: Status
+    public let stop: StopDetails
+    public let status: Status
 }

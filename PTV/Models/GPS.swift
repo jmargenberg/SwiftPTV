@@ -1,6 +1,6 @@
 import Foundation
 
 public struct GPS: Codable {
-    let latitude: Float
-    let longitude: Float
+    public let latitude: Float
+    public let longitude: Float
 }

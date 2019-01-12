@@ -1,8 +1,8 @@
 import Foundation
 
 public struct StopDetails: Codable {
-    let station_description: String
-    let stop_amenities: StopAmenityDetails
-    let stop_accessibility: StopAccessibility
-    let stop_location: StopLocation?
+    public let station_description: String
+    public let stop_amenities: StopAmenityDetails
+    public let stop_accessibility: StopAccessibility
+    public let stop_location: StopLocation?
 }

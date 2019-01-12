@@ -1,6 +1,6 @@
 import Foundation
 
 public struct RouteTypesResponse: Codable {
-    let route_types: [RouteType]
-    let status: Status
+    public let route_types: [RouteType]
+    public let status: Status
 }

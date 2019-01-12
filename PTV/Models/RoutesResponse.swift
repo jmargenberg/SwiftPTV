@@ -1,6 +1,6 @@
 import Foundation
 
 public struct RoutesResponse: Codable {
-    let routes: [Route] // NOTE: spec actually states a single route, but actually returns list of routes
-    let status: Status
+    public let routes: [Route] // NOTE: spec actually states a single route, but actually returns list of routes
+    public let status: Status
 }

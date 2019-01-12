@@ -1,7 +1,7 @@
 import Foundation
 
 public struct StopAmenityDetails: Codable {
-    let toilet: Bool
-    let taxi_rank: Bool
-    let cctv: Bool
+    public let toilet: Bool
+    public let taxi_rank: Bool
+    public let cctv: Bool
 }

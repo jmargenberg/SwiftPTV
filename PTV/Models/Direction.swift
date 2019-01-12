@@ -1,9 +1,9 @@
 import Foundation
 
 public struct Direction: Codable {
-    let direction_id: Int
-    let direction_name: String
-    let route_id: Int?
-    let route_type: Int?
+    public let direction_id: Int
+    public let direction_name: String
+    public let route_id: Int?
+    public let route_type: Int?
     
 }

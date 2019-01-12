@@ -1,9 +1,9 @@
 import Foundation
 
 public struct Run: Codable {
-    let run_id: Int
-    let route_id: Int?
-    let route_type: Int?
-    let final_stop_id: Int?
-    let destination_name: String?
+    public let run_id: Int
+    public let route_id: Int?
+    public let route_type: Int?
+    public let final_stop_id: Int?
+    public let destination_name: String?
 }

@@ -1,6 +1,6 @@
 import Foundation
 
 public struct RouteType: Codable {
-    let route_type_name: String?
-    let route_type: Int
+    public let route_type_name: String?
+    public let route_type: Int
 }
