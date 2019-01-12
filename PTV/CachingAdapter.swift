@@ -23,7 +23,7 @@ import CoreLocation
  - StopOnRoute - getStops(onRoute: forRouteType: completion: ) - all the stops for a given route
  - StopDetails - getStopDetails(forStop: forRouteType: completion: ) - detailed description of stop including amenities
  */
-class CachingAdapter: ModelledAdapter {
+public class CachingAdapter: ModelledAdapter {
     
     private var cachedRouteTypes: [RouteType]
     private var cachedStopsGeosearch: [Int: StopGeosearch] // StopGeosearch objects (not StopDetails, or StopOnRoute) indexed by their StopID

@@ -10,7 +10,7 @@ import CommonCrypto
  
  Strictly conforms to spec at https://timetableapi.ptv.vic.gov.au/swagger/ui/index
  */
-class Adapter {
+public class Adapter {
     private static let baseURL: URL = URL(string: "http://timetableapi.ptv.vic.gov.au")! // URL of the PTV API
     private static let version: String = "v3" // version of PTV API
     private let devid: String
@@ -23,14 +23,14 @@ class Adapter {
         self.urlSession = urlSession
     }
     
-    enum CallFailReason {
+    public enum CallFailReason {
         case InvalidRequest
         case AccessDenied
         case NoNetworkConnection
         case UnkownError
     }
     
-    typealias FailureHandler = (_ callFailReason: CallFailReason, _ message: String?) -> ()
+    public typealias FailureHandler = (_ callFailReason: CallFailReason, _ message: String?) -> ()
     
     /**
      Calls PTV API at requested api name with provided search string and parameters, calling completion closure on completion with Data object of json response if successful or nil if unsuccessful

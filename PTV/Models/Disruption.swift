@@ -1,6 +1,6 @@
 import Foundation
 
-struct Disruption: Codable {
+public struct Disruption: Codable {
     let disruption_id: Int
     let title: String
     let url: String?

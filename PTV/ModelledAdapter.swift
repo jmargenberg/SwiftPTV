@@ -12,7 +12,7 @@ import CoreLocation
  - StopOnRoute - getStops(onRoute: forRouteType: completion: ) - all the stops for a given route
  - StopDetails - getStopDetails(forStop: forRouteType: completion: ) - detailed description of stop including amenities
  */
-class ModelledAdapter: Adapter {
+public class ModelledAdapter: Adapter {
     
     public static let TRAIN_ROUTE_TYPE = 0 // RouteTypeId for Train Service
     

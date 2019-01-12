@@ -1,6 +1,6 @@
 import Foundation
 
-struct DeparturesResponse: Codable {
+public struct DeparturesResponse: Codable {
     let departures: [Departure]
     
     // 'Expanded objects' - these are complete objects appended to the departures response, only objects referenced in the departures list are returned
