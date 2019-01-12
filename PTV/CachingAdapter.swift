@@ -23,7 +23,7 @@ import CoreLocation
  - StopOnRoute - getStops(onRoute: forRouteType: completion: ) - all the stops for a given route
  - StopDetails - getStopDetails(forStop: forRouteType: completion: ) - detailed description of stop including amenities
  */
-class PTVCached: PTVModelled {
+class CachingAdapter: ModelledAdapter {
     
     private var cachedRouteTypes: [RouteType]
     private var cachedStopsGeosearch: [Int: StopGeosearch] // StopGeosearch objects (not StopDetails, or StopOnRoute) indexed by their StopID
@@ -48,42 +48,42 @@ class PTVCached: PTVModelled {
     
     // MARK: - Standard API request functions
     
-    public override func getRouteTypes(failure: @escaping PTV.FailureHandler, completion: @escaping (_ routeTypes: [RouteType]) -> ()) {
+    public override func getRouteTypes(failure: @escaping Adapter.FailureHandler, completion: @escaping (_ routeTypes: [RouteType]) -> ()) {
         super.getRouteTypes(failure: failure) { (routeTypes) in
             self.cache(routeTypes: routeTypes)
             completion(routeTypes)
         }
     }
     
-    public override func getRoutes(failure: @escaping PTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
+    public override func getRoutes(failure: @escaping Adapter.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
         super.getRoutes(failure: failure) { (routes) in
             self.cache(routes: routes)
             completion(routes)
         }
     }
     
-    public override func getRoutes(forRouteTypeID routeTypeID: Int, failure: @escaping PTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
+    public override func getRoutes(forRouteTypeID routeTypeID: Int, failure: @escaping Adapter.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
         super.getRoutes(forRouteTypeID: routeTypeID, failure: failure) { (routes) in
             self.cache(routes: routes)
             completion(routes)
         }
     }
     
-    public override func getRoutes(forRouteTypeIDs routeTypeIDs: [Int], failure: @escaping PTV.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
+    public override func getRoutes(forRouteTypeIDs routeTypeIDs: [Int], failure: @escaping Adapter.FailureHandler, completion: @escaping (_ routes: [Route]) -> ()) {
         super.getRoutes(forRouteTypeIDs: routeTypeIDs, failure: failure) { (routes) in
             self.cache(routes: routes)
             completion(routes)
         }
     }
     
-    public override func getStops(nearLocation location: CLLocationCoordinate2D, forRouteTypes routeTypes: [Int] = [PTVCached.TRAIN_ROUTE_TYPE], maxResults: Int = 1000, maxDistance: Int = 5000, failure: @escaping PTV.FailureHandler, completion: @escaping (([StopGeosearch]) -> ())) {
+    public override func getStops(nearLocation location: CLLocationCoordinate2D, forRouteTypes routeTypes: [Int] = [CachingAdapter.TRAIN_ROUTE_TYPE], maxResults: Int = 1000, maxDistance: Int = 5000, failure: @escaping Adapter.FailureHandler, completion: @escaping (([StopGeosearch]) -> ())) {
         super.getStops(nearLocation: location, forRouteTypes: routeTypes, failure: failure) { (stopGeaosearches) in
             self.cache(stopGeosearches: stopGeaosearches)
             completion(stopGeaosearches)
         }
     }
     
-    public override func getStops(onRoute routeId: Int, forRouteType routeTypeId: Int = PTVCached.TRAIN_ROUTE_TYPE, failure: @escaping PTV.FailureHandler, completion: @escaping (([StopOnRoute]) -> ())) {
+    public override func getStops(onRoute routeId: Int, forRouteType routeTypeId: Int = CachingAdapter.TRAIN_ROUTE_TYPE, failure: @escaping Adapter.FailureHandler, completion: @escaping (([StopOnRoute]) -> ())) {
         super.getStops(onRoute: routeId, forRouteType: routeTypeId, failure: failure) { (stopsOnRoute) in
             self.cache(stopsOnRoute: stopsOnRoute)
             
