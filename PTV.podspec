@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PTV"
-  s.version      = "0.2.2"
+  s.version      = "0.2.3"
   s.summary      = "An API adapter for the PTV Timetable API written in Swift for iOS"
   s.description  = <<-DESC
                    An API adapter for the PTV Timetable API written in Swift for iOS.
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author             = "James Margenberg"
   s.platform     = :ios, "10.3"
   s.swift_version = "4.1"
-  s.source       = { :git => "https://github.com/jmargenberg/SwiftPTV.git", :tag => "v0.2.2" }
+  s.source       = { :git => "https://github.com/jmargenberg/SwiftPTV.git", :tag => "v0.2.3" }
   s.source_files  = "PTV/**/*.{swift,h}"
 
   s.subspec 'Adapter' do |sp|
