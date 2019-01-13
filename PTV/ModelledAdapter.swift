@@ -87,7 +87,7 @@ public class ModelledAdapter: Adapter {
         }
     }
     
-    public func getDeparture(forStop stopId: Int, withRouteType routeTypeId: Int, failure: @escaping Adapter.FailureHandler, completion: @escaping (([Departure]) -> ())) {
+    public func getDepartures(forStop stopId: Int, withRouteType routeTypeId: Int, failure: @escaping Adapter.FailureHandler, completion: @escaping (([Departure]) -> ())) {
         let searchString = "route_type/\(String(routeTypeId))/stop/\(String(stopId))"
         let params = ["expand": "all"]
         

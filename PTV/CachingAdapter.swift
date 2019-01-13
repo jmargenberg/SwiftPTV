@@ -91,6 +91,17 @@ public class CachingAdapter: ModelledAdapter {
         }
     }
     
+    public override func getDepartures(forStop stopId: Int, withRouteType routeTypeId: Int, failure: @escaping Adapter.FailureHandler, completion: @escaping (([Departure]) -> ())) {
+        
+        let searchString = "route_type/\(String(routeTypeId))/stop/\(String(stopId))"
+        let params = ["expand": "all"]
+        
+        self.call(apiName: "departures", searchString: searchString, params: params, decodeTo: DeparturesResponse.self, failure: failure) { (departuresResponse) in
+            self.cache(departuresResponse: departuresResponse)
+            completion(departuresResponse.departures)
+        }
+    }
+    
     // MARK: - Populate Cache
     
     private func cache(departuresResponse: DeparturesResponse) {
