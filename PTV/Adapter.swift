@@ -17,7 +17,7 @@ public class Adapter {
     private let key: String
     private let urlSession: URLSession
     
-    init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
+    public init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
         self.devid = devid
         self.key = key
         self.urlSession = urlSession

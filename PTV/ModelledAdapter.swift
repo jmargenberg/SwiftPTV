@@ -16,7 +16,7 @@ public class ModelledAdapter: Adapter {
     
     public static let TRAIN_ROUTE_TYPE = 0 // RouteTypeId for Train Service
     
-    override init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
+    public override init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
         super.init(devid: devid, key: key, urlSession: urlSession)
     }
     

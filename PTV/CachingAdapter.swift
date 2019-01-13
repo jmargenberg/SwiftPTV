@@ -32,7 +32,7 @@ public class CachingAdapter: ModelledAdapter {
     private var cachedDirections: [Int: Direction] // Direction objects indexed by their directionID
     private var cachedStopsOnRoute: [Int: StopOnRoute] // StopOnRoute objects (not StopGeosearch or StopDetails) indexed by their StopId
     
-    override init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
+    public override init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
         // initalise cache
         self.cachedRouteTypes = []
         self.cachedRoutes = [:]
@@ -159,28 +159,28 @@ public class CachingAdapter: ModelledAdapter {
     // MARK: - Retrieve from cache
     
     // TODO: just make cache dictionaries public?
-    func getRouteTypesFromCache(forRouteTypeId routeTypeId: Int) -> RouteType? {
+    public func getRouteTypesFromCache(forRouteTypeId routeTypeId: Int) -> RouteType? {
         return cachedRouteTypes[routeTypeId]
     }
     
     // Note .distance should be ignored as this is relative to the geosearch
-    func getStopGeosearchFromCache(forStopId stopId: Int) -> StopGeosearch? {
+    public func getStopGeosearchFromCache(forStopId stopId: Int) -> StopGeosearch? {
         return cachedStopsGeosearch[stopId]
     }
     
-    func getRouteFromCache(forRouteId routeId: Int) -> Route? {
+    public func getRouteFromCache(forRouteId routeId: Int) -> Route? {
         return cachedRoutes[routeId]
     }
     
-    func getDirectionFromCache(forDirectionId directionId: Int) -> Direction? {
+    public func getDirectionFromCache(forDirectionId directionId: Int) -> Direction? {
         return cachedDirections[directionId]
     }
     
-    func getStopOnRouteFromCache(forStopId stopId: Int) -> StopOnRoute? {
+    public func getStopOnRouteFromCache(forStopId stopId: Int) -> StopOnRoute? {
         return cachedStopsOnRoute[stopId]
     }
     
-    func getCachedRun(forRunID runId: Int) -> Run? {
+    public func getCachedRun(forRunID runId: Int) -> Run? {
         return cachedRuns[runId]
     }
 }

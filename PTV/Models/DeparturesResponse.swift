@@ -1,7 +1,7 @@
 import Foundation
 
 public struct DeparturesResponse: Codable {
-    let departures: [Departure]
+    public let departures: [Departure]
     
     // 'Expanded objects' - these are complete objects appended to the departures response, only objects referenced in the departures list are returned
     public let stops: [String: StopGeosearch]? // StopGeosearch objects (not StopDetails!) indexed by their StopID (int formatted as String)
