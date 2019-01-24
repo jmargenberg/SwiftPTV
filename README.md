@@ -11,8 +11,6 @@ Just add `pod 'PTV', '~> 0.2'` to your podfile and run `pod install`.
 
 ## Adapter Classes
 
-### Adapter
-
 ### Modelled Adapter
 ```
 import PTV
