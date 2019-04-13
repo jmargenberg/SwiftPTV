@@ -10,6 +10,7 @@
 		1A288D112261740600E94835 /* DepartureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A288D102261740600E94835 /* DepartureTest.swift */; };
 		1A288D132261743700E94835 /* StopGeosearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A288D122261743700E94835 /* StopGeosearchTest.swift */; };
 		1A288D142261FFA800E94835 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6DE21AF2B0E00548E2E /* Departure.swift */; };
+		1A288D1522620BB800E94835 /* StopGeosearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9E6E721AF2B0E00548E2E /* StopGeosearch.swift */; };
 		1AA4AED421C64000009715E7 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4AED121C64000009715E7 /* URLSessionMock.swift */; };
 		1AA4AED521C64000009715E7 /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4AED221C64000009715E7 /* URLSessionDataTaskMock.swift */; };
 		1AE9E6A621AF2AF200548E2E /* PTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE9E69C21AF2AF200548E2E /* PTV.framework */; };
@@ -361,6 +362,7 @@
 				1AA4AED521C64000009715E7 /* URLSessionDataTaskMock.swift in Sources */,
 				1A288D112261740600E94835 /* DepartureTest.swift in Sources */,
 				1AE9E6AB21AF2AF200548E2E /* AdapterTests.swift in Sources */,
+				1A288D1522620BB800E94835 /* StopGeosearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
