@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PTV"
-  s.version      = "0.2.3"
+  s.version      = "0.2.4"
   s.summary      = "An API adapter for the PTV Timetable API written in Swift for iOS"
   s.description  = <<-DESC
                    An API adapter for the PTV Timetable API written in Swift for iOS.
