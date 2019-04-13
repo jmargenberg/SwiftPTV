@@ -28,7 +28,7 @@ struct ErrorResponse: Codable, Equatable {
     let status: Status
 }
 
-class PTVTests: XCTestCase {
+class AdapterTests: XCTestCase {
     private var urlSessionMock: URLSessionMock!
     private var swiftPTV: Adapter!
     

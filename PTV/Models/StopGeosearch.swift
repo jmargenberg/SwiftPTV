@@ -8,7 +8,9 @@ public struct StopGeosearch: Codable {
     public let route_type: Int?
     public let stop_latitude: Double
     public let stop_longitude: Double
-    
+}
+
+extension StopGeosearch {
     // computed property used instead of lazy var to allow use when returned as immutable property
     public var location: CLLocationCoordinate2D { get { return CLLocationCoordinate2D(latitude: self.stop_latitude, longitude: self.stop_longitude) } }
 }
