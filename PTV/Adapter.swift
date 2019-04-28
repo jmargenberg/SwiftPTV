@@ -41,7 +41,7 @@ public class Adapter {
         urlSession.dataTask(with: url) { (data, response, dataTaskError) in
             if let dataTaskError = dataTaskError {
                 switch (dataTaskError as! URLError).code {
-                case URLError.Code.notConnectedToInternet, URLError.Code.networkConnectionLost, URLError.Code.cannotConnectToHost, URLError.cannotLoadFromNetwork:
+                case URLError.Code.notConnectedToInternet, URLError.Code.networkConnectionLost, URLError.Code.cannotConnectToHost, URLError.Code.cannotLoadFromNetwork, URLError.Code.timedOut:
                     failure(.NoNetworkConnection, "Unable to connect to network.")
                 default:
                     failure(.UnkownError, nil)
