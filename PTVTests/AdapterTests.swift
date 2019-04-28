@@ -133,8 +133,8 @@ class AdapterTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
     
-    func testReuestWithDataTaskError() {
-        urlSessionMock.error = URLError(.notConnectedToInternet)
+    func testRequestWithDataTaskError() {
+        urlSessionMock.error = URLError(.timedOut)
         
         let completionIsNotExecuted = self.expectation(description: "Completion handler is not executed")
         completionIsNotExecuted.isInverted = true
