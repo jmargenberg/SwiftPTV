@@ -1,6 +1,6 @@
 import Foundation
 
 public struct StopAccessibility: Codable {
-    public let lifts: Bool
-    public let wheelchair: StopAccessibilityWheelchair
+    public let lift: Bool?
+    public let wheelchair: StopAccessibilityWheelchair?
 }
