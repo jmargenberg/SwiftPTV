@@ -4,3 +4,8 @@ install:
   - bundle install
 script:
   - bundle exec fastlane tests
+deploy:
+  provider: script
+  script: bundle exec fastlane release
+  on:
+    branch: master
