@@ -16,8 +16,13 @@ public class ModelledAdapter: Adapter {
     
     public static let TRAIN_ROUTE_TYPE = 0 // RouteTypeId for Train Service
     
-    public override init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
-        super.init(devid: devid, key: key, urlSession: urlSession)
+    public override init(
+        devid: String,
+        key: String,
+        urlSession: URLSession = URLSession.shared,
+        baseURL: URL = URL(string: "http://timetableapi.ptv.vic.gov.au")!
+    ) {
+        super.init(devid: devid, key: key, urlSession: urlSession, baseURL: baseURL)
     }
     
     

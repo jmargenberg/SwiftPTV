@@ -32,7 +32,12 @@ public class CachingAdapter: ModelledAdapter {
     private var cachedDirections: [Int: Direction] // Direction objects indexed by their directionID
     private var cachedStopsOnRoute: [Int: StopOnRoute] // StopOnRoute objects (not StopGeosearch or StopDetails) indexed by their StopId
     
-    public override init(devid: String, key: String, urlSession: URLSession = URLSession.shared) {
+    public override init(
+        devid: String,
+        key: String,
+        urlSession: URLSession = URLSession.shared,
+        baseURL: URL = URL(string: "http://timetableapi.ptv.vic.gov.au")!
+    ) {
         // initalise cache
         self.cachedRouteTypes = []
         self.cachedRoutes = [:]
@@ -42,7 +47,7 @@ public class CachingAdapter: ModelledAdapter {
         self.cachedDirections = [:]
         self.cachedStopsOnRoute = [:]
         
-        super.init(devid: devid, key: key, urlSession: urlSession)
+        super.init(devid: devid, key: key, urlSession: urlSession, baseURL: baseURL)
     }
     
     
