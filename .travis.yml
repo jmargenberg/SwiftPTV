@@ -7,6 +7,6 @@ script:
   - bundle exec fastlane tests
 deploy:
   provider: script
-  script: bundle exec fastlane release
+  script: ./deploy-to-cocoapods.sh
   on:
     branch: master
