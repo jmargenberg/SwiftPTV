@@ -12,8 +12,20 @@
 
 default_platform(:ios)
 
+podspec_name = "PTV.podspec"
+
 platform :ios do
   lane :tests do
     run_tests(scheme: "SwiftPTVTests")
+  end
+
+  lane :release do
+    pod_lib_lint
+    version = version_bump_podspec(path: podspec_name)
+    git_add(path: podspec_name)
+    git_commit(path: [podspec_name], message: "#{version} release [ci skip]")
+    add_git_tag(tag: "#{version}")
+    sh("git", "push", "origin", "HEAD:master")
+    pod_push
   end
 end

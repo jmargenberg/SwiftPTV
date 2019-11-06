@@ -1,6 +1,12 @@
 language: objective-c
 osx_image: xcode10.1
 install:
+  - gem install bundler
   - bundle install
 script:
   - bundle exec fastlane tests
+deploy:
+  provider: script
+  script: . ./deploy-to-cocoapods.sh
+  on:
+    branch: master
