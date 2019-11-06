@@ -26,6 +26,6 @@ platform :ios do
     git_commit(path: [podspec_name], message: "#{version} release [ci skip]")
     add_git_tag(tag: "#{version}")
     sh("git", "push", "origin", "HEAD:master", "--tags")
-    pod_push
+    pod_push(allow_warnings: true)
   end
 end
