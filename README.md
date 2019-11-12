@@ -15,7 +15,7 @@ Just add `pod 'PTV', '~> 0.2'` to your podfile and run `pod install`.
 ```
 import PTV
 
-let ptv = PTV.ModelledAdapter(devid: "1234567", key: "12345678901234567890")
+let ptv = PTV.ModelledAdapter(devid: "12345678", key: "12345678901234567890")
 ```
 
 Provides functions for specific api calls with successfull calls calling a `completion` closure with predefined `Codable` structs and failing calls calling a `failure` closure with `CallFailReason`  enum (e.g.  `.AccessDenied` or `.NoNetworkConnection`) and `message` string
